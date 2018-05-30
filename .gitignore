@@ -1,0 +1,8 @@
+.DS_Store
+.idea/
+config/config.yml
+newmitx_extensions/import_newmitx_to_moocdb.sql
+*.pyc
+*.png
+*.coverage
+*.coveragerc

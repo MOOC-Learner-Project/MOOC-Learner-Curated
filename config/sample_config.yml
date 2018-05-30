@@ -1,0 +1,87 @@
+mysql:
+  host: localhost
+  port: 3306
+  query_user: no
+  user: root
+  query_password: no
+  password: ALFA
+  query_database: no
+  database: moocdb
+
+pipeline:
+  query: no
+  folder_setup: yes
+  apipe: yes
+  qpipe:
+    qpipe_process_events: yes
+    qpipe_create_db: yes
+    qpipe_populate_db: yes
+  curation: yes
+  vismooc_extensions:
+    vismooc_process:  yes
+    vismooc_populate: yes
+  newmitx_extensions:
+    newmitx_process: yes
+    newmitx_populate: yes
+
+data_file:
+  data_dir: ../data/
+  course_folder: synthetic
+  log_data_folder: log_data
+  vismooc_data_folder: vismooc
+  new_mitx_data_folder: newmitx
+  log_file: log_data.json
+  vismooc_file:
+    course_structure_file: course_structure-prod-analytics.json
+    course_certificates_file: certificates_generatedcertificate-prod-analytics.sql
+    course_enrollment_file: student_courseenrollment-prod-analytics.sql
+    course_user_file: auth_user-prod-analytics.sql
+    course_profile_file: auth_userprofile-prod-analytics.sql
+    course_forum_file: prod.mongo
+  newmitx_file:
+    course_video_axis_file: video_axis.json
+    course_video_stats_file: video_stats.json
+    course_video_stats_day_file: video_stats_day.json
+    course_pc_day_totals_file: pc_day_totals.json
+    course_person_course_day_file: person_course_day.json
+    course_person_course_video_watched_file: person_course_video_watched.json
+    course_stats_activity_by_day_file: stats_activity_by_day.json
+    course_stats_overall_file: stats_overall.json
+    course_time_on_task_file: time_on_task.json
+    course_time_on_task_totals_file: time_on_task_totals.json
+    course_user_info_combo_file: user_info_combo.json
+
+csv_parsing:
+  quotechar: "'"
+  escapechar: "\\"
+  timestamp_format:
+    - '%Y-%m-%dT%H:%M:%S.%f'
+    - '%Y-%m-%dT%H:%M:%S'
+    - '%Y-%m-%d %H:%M:%S'
+    - '%Y-%m-%d %H:%M:%S.%f %Z'
+
+csv_path:
+  intermediary_csv_dir: intermediary_csv
+  moocdb_csv_dir: moocdb_csv
+  edx_track_event_name: EdxTrackEventTable.csv
+  correct_map_name: CorrectMapTable.csv
+  answer_name: AnswerTable.csv
+  resource_hierarchy_name: resource_hierarchy.org
+  problem_hierarchy_name: problem_hierarchy.org
+
+mysql_script_path:
+  MLC_dir: /home/mcding/MOOC-Learner-Docker/MOOC-Learner-Curated/
+  edx_pipe_folder: edx_pipe
+  curation_folder: curation
+  vismooc_extensions_folder: vismooc_extensions
+  newmitx_extensions_folder: newmitx_extensions
+  apipe_folder: apipe
+  qpipe_folder: qpipe
+  qpipe_create_db_script: create_mysqlDB.sql
+  qpipe_copy_db_script: copy_to_mysqlDB.sql
+  vismooc_extensions_import_script: import_vismooc_to_moocdb.sql
+  newmitx_extensions_import_script: import_newmitx_to_moocdb.sql
+
+open_edx_spec:
+  video_id_spec: HKUSTx
+
